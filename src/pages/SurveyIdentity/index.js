@@ -1,5 +1,5 @@
-import React, {useState, useCallback, useEffect} from 'react';
-import {useDispatch, useSelector} from 'react-redux';
+import React, {useState, useCallback} from 'react';
+import {useDispatch} from 'react-redux';
 import {Dimensions} from 'react-native';
 
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scrollview';
@@ -10,8 +10,6 @@ import PageHeader from '../../components/PageHeader';
 
 import {identityRequest} from '../../store/modules/survey/actions';
 
-import {surveyState} from '../../store/selectors/survey';
-
 import {Container, Wrapper, ButtonWrapper} from './styles';
 
 const SurveyIdentity = ({navigation}) => {
@@ -21,19 +19,11 @@ const SurveyIdentity = ({navigation}) => {
   const [name, setName] = useState({value: '', isValid: false});
   const [email, setEmail] = useState({value: '', isValid: false});
 
-  // const {
-  //   identityData: {userName, userEmail},
-  // } = useSelector(surveyState);
-
   const contentStyle = {
     display: 'flex',
     flexGrow: 1,
     justifyContent: 'space-between',
   };
-
-  useEffect(() => {
-    console.log(surveyState);
-  }, []);
 
   const handleSubmit = useCallback(() => {
     dispatch(identityRequest(name, email));

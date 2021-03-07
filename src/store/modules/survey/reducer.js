@@ -3,6 +3,10 @@ import produce from 'immer';
 const INITIAL_STATE = {
   name: '',
   email: '',
+  birthdate: '',
+  gender: '',
+  book: '',
+  colors: [],
 };
 
 const survey = (state = INITIAL_STATE, action) => {
